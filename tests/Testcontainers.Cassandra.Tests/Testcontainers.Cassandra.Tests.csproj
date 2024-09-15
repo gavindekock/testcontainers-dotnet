@@ -1,21 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <TargetFrameworks>net8.0</TargetFrameworks>
+        <IsPackable>false</IsPackable>
+        <IsPublishable>false</IsPublishable>
     </PropertyGroup>
-
     <ItemGroup>
-      <PackageReference Include="CassandraCSharpDriver" />
-      <PackageReference Include="Microsoft.NET.Test.Sdk" />
-      <PackageReference Include="xunit.extensibility.core" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk"/>
+        <PackageReference Include="coverlet.collector"/>
+        <PackageReference Include="xunit.runner.visualstudio"/>
+        <PackageReference Include="xunit"/>
+        <PackageReference Include="CassandraCSharpDriver" />
     </ItemGroup>
-
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Testcontainers.Cassandra\Testcontainers.Cassandra.csproj" />
-      <ProjectReference Include="..\..\src\Testcontainers\Testcontainers.csproj" />
-      <ProjectReference Include="..\Testcontainers.Commons\Testcontainers.Commons.csproj" />
+        <ProjectReference Include="..\..\src\Testcontainers.Cassandra\Testcontainers.Cassandra.csproj" />
+        <ProjectReference Include="..\Testcontainers.Commons\Testcontainers.Commons.csproj" />
     </ItemGroup>
-
 </Project>

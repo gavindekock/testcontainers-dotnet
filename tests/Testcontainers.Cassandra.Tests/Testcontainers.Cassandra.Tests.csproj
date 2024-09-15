@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CassandraCSharpDriver" />
+      <PackageReference Include="Microsoft.NET.Test.Sdk" />
+      <PackageReference Include="xunit.extensibility.core" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Testcontainers.Cassandra\Testcontainers.Cassandra.csproj" />
+      <ProjectReference Include="..\..\src\Testcontainers\Testcontainers.csproj" />
+      <ProjectReference Include="..\Testcontainers.Commons\Testcontainers.Commons.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,7 +1,4 @@
-﻿using System.Net;
-using Cassandra;
-
-namespace Testcontainers.Cassandra.Tests
+﻿namespace Testcontainers.Cassandra.Tests
 {
   public class CassandraContainerTest : IAsyncLifetime
   {

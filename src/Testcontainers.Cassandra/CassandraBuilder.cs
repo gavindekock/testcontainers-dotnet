@@ -4,7 +4,7 @@
     [PublicAPI]
     public sealed class CassandraBuilder : ContainerBuilder<CassandraBuilder, CassandraContainer, CassandraConfiguration>
     {
-        public const string CassandraImage = "library/cassandra:5.0.0";
+        public const string CassandraImage = "library/cassandra:5.0.1";
 
         public const ushort CqlPort = 9042;
 

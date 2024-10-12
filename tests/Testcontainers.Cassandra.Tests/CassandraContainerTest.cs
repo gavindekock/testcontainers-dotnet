@@ -1,6 +1,6 @@
 ﻿namespace Testcontainers.Cassandra.Tests
 {
-  public class CassandraContainerTest : IAsyncLifetime
+  public sealed class CassandraContainerTest : IAsyncLifetime
   {
     private readonly CassandraContainer _cassandraContainer = new CassandraBuilder().Build();
 

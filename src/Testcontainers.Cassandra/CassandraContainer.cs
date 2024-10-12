@@ -2,7 +2,7 @@
 {
   /// <inheritdoc cref="DockerContainer" />
   [PublicAPI]
-  public class CassandraContainer : DockerContainer
+  public class CassandraContainer : DockerContainer, IDatabaseContainer
   {
     private readonly CassandraConfiguration _configuration;
 
@@ -15,6 +15,11 @@
     public IPEndPoint GetEndPoint()
     {
       return new IPEndPoint(IPAddress.Loopback, GetMappedPublicPort(CassandraBuilder.CqlPort));
+    }
+
+    public string GetConnectionString()
+    {
+      throw new NotImplementedException();
     }
 
     /// <summary>
@@ -33,5 +38,6 @@
       return await ExecAsync(new[] { "cqlsh", "-f", scriptFilePath }, ct)
         .ConfigureAwait(false);
     }
+
   }
 }

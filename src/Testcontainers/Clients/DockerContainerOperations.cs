@@ -91,6 +91,18 @@ namespace DotNet.Testcontainers.Clients
       return DockerClient.Containers.StopContainerAsync(id, new ContainerStopParameters { WaitBeforeKillSeconds = 15 }, ct);
     }
 
+    public Task PauseAsync(string id, CancellationToken ct = default)
+    {
+      Logger.PauseDockerContainer(id);
+      return DockerClient.Containers.PauseContainerAsync(id, ct);
+    }
+
+    public Task UnpauseAsync(string id, CancellationToken ct = default)
+    {
+      Logger.UnpauseDockerContainer(id);
+      return DockerClient.Containers.UnpauseContainerAsync(id, ct);
+    }
+
     public Task RemoveAsync(string id, CancellationToken ct = default)
     {
       Logger.DeleteDockerContainer(id);
@@ -100,7 +112,7 @@ namespace DotNet.Testcontainers.Clients
     public Task ExtractArchiveToContainerAsync(string id, string path, TarOutputMemoryStream tarStream, CancellationToken ct = default)
     {
       Logger.CopyArchiveToDockerContainer(id, tarStream.ContentLength);
-      return DockerClient.Containers.ExtractArchiveToContainerAsync(id, new ContainerPathStatParameters { Path = path, AllowOverwriteDirWithFile = false }, tarStream, ct);
+      return DockerClient.Containers.ExtractArchiveToContainerAsync(id, new ContainerPathStatParameters { Path = path }, tarStream, ct);
     }
 
     public async Task<Stream> GetArchiveFromContainerAsync(string id, string path, CancellationToken ct = default)
